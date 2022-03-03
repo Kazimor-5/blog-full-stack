@@ -7,9 +7,13 @@ import CreatePost from './CreatePost';
 const App = () => {
   return (
     <Router>
-      <nav>
-        <Link to='/'>Main Posts</Link>
-        <Link to='/create-post'>Create Post</Link>
+      <nav className='navbar'>
+        <Link className='nav-link' to='/'>
+          Main Posts
+        </Link>
+        <Link className='nav-link' to='/create-post'>
+          Create Post
+        </Link>
       </nav>
       <Routes>
         <Route index element={<MainPage />} />

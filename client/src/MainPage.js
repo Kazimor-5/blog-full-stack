@@ -16,16 +16,20 @@ const MainPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       {posts.map((post) => {
         const { id, title, user_name, likes } = post;
 
         return (
-          <article key={id}>
-            <h2 onClick={() => navigate(`/post/${id}`)}>{title}</h2>
-            <h4>{user_name}</h4>
-            <span>{likes}</span>
-            <button>like</button>
+          <article className='post' key={id}>
+            <h2
+              className='title post-title'
+              onClick={() => navigate(`/post/${id}`)}
+            >
+              {title}
+            </h2>
+            <h4 className='title'>{user_name}</h4>
+            <span className='number-like'>Likes: {likes}</span>
           </article>
         );
       })}

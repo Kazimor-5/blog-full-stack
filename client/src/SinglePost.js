@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { BiLike } from 'react-icons/bi';
 
 const SinglePost = () => {
   const [post, setPost] = useState([]);
@@ -28,14 +29,18 @@ const SinglePost = () => {
   const { date_posted, post_text, title, user_name } = post;
 
   return (
-    <article>
-      <h1>{title}</h1>
+    <article className='singlePost'>
+      <h1 className='title singlePost-title'>{title}</h1>
       <h5>
         {user_name} {date_posted}
       </h5>
       <p>{post_text}</p>
-      <span>{likes}</span>
-      <button onClick={handleLike}>like</button>
+      <div className='like'>
+        <span>{likes}</span>
+        <button className='btn-like' onClick={handleLike}>
+          <BiLike />
+        </button>
+      </div>
     </article>
   );
 };
